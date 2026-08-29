@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:remote-ruleset-admin-evidence:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "phase", "repository", "proposal_commit_sha", "proposal_tree_sha",
+    "ceremony_nonce", "governing_ref", "governing_ref_absent", "rulesets", "observed_at",
+    "raw_api_capture_sha256", "producer_actor_binding_digest", "publisher_github_actor_id", "signature"
+  ],
+  "properties": {
+    "schema_version": { "const": "aiyuehan-workbench.remote-ruleset-admin-evidence/v1" },
+    "phase": { "enum": ["PRECONDITION", "POST_PUBLICATION"] },
+    "repository": { "$ref": "#/$defs/repository" },
+    "proposal_commit_sha": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+    "proposal_tree_sha": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+    "ceremony_nonce": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/ceremony_nonce" },
+    "governing_ref": { "const": "refs/tags/governance/r0" },
+    "governing_ref_absent": { "type": "boolean" },
+    "published_tag": { "$ref": "#/$defs/published_tag" },
+    "rulesets": {
+      "type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true,
+      "items": { "$ref": "#/$defs/ruleset" },
+      "allOf": [
+        { "contains": { "type": "object", "required": ["target"], "properties": { "target": { "const": "branch" } } }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "type": "object", "required": ["target"], "properties": { "target": { "const": "tag" } } }, "minContains": 1, "maxContains": 1 }
+      ]
+    },
+    "observed_at": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339" },
+    "raw_api_capture_sha256": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "producer_actor_binding_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "publisher_github_actor_id": { "const": 284274547 },
+    "signature": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/signature" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "phase": { "const": "PRECONDITION" } }, "required": ["phase"] },
+      "then": {
+        "properties": {
+          "governing_ref_absent": { "const": true },
+          "published_tag": false
+        }
+      },
+      "else": {
+        "required": ["published_tag"],
+        "properties": {
+          "governing_ref_absent": { "const": false }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "repository": {
+      "type": "object", "additionalProperties": false,
+      "required": ["database_id", "owner", "name", "private", "default_branch", "url"],
+      "properties": {
+        "database_id": { "const": 1350747678 },
+        "owner": { "const": "cindywheele97-art" },
+        "name": { "const": "AIyuehan-workbench" },
+        "private": { "const": false },
+        "default_branch": { "const": "main" },
+        "url": { "const": "https://github.com/cindywheele97-art/AIyuehan-workbench" }
+      }
+    },
+    "published_tag": {
+      "type": "object", "additionalProperties": false,
+      "required": ["ref", "tag_object_sha", "peeled_commit_sha", "peeled_tree_sha", "tag_message_sha256"],
+      "properties": {
+        "ref": { "const": "refs/tags/governance/r0" },
+        "tag_object_sha": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+        "peeled_commit_sha": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+        "peeled_tree_sha": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+        "tag_message_sha256": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" }
+      }
+    },
+    "ruleset": {
+      "type": "object", "additionalProperties": false,
+      "required": ["ruleset_id", "name", "target", "source_type", "source", "enforcement", "include_refs", "exclude_refs", "rules", "bypass_actors"],
+      "properties": {
+        "ruleset_id": { "type": "integer", "minimum": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "target": { "enum": ["branch", "tag"] },
+        "source_type": { "const": "Repository" },
+        "source": { "const": "cindywheele97-art/AIyuehan-workbench" },
+        "enforcement": { "const": "active" },
+        "include_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": { "enum": ["refs/heads/main", "refs/heads/governance/r0-proposal", "refs/tags/gov0-r0-proposal-v4", "refs/tags/governance/r0"] }
+        },
+        "exclude_refs": { "type": "array", "maxItems": 0 },
+        "rules": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": { "enum": ["creation", "update", "deletion", "non_fast_forward", "pull_request"] }
+        },
+        "pull_request_parameters": { "$ref": "#/$defs/pull_request_parameters" },
+        "bypass_actors": {
+          "type": "array", "minItems": 1, "maxItems": 1, "uniqueItems": true,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["actor_id", "actor_type", "bypass_mode"],
+            "properties": {
+              "actor_id": { "const": 284274547 },
+              "actor_type": { "const": "User" },
+              "bypass_mode": { "const": "always" }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "target": { "const": "branch" } }, "required": ["target"] },
+          "then": {
+            "required": ["pull_request_parameters"],
+            "properties": {
+              "ruleset_id": { "const": 21811138 },
+              "name": { "const": "governance-main-branch" },
+              "include_refs": { "const": ["refs/heads/main", "refs/heads/governance/r0-proposal"] },
+              "rules": { "const": ["creation", "update", "deletion", "non_fast_forward", "pull_request"] }
+            }
+          },
+          "else": {
+            "properties": {
+              "ruleset_id": { "const": 21811141 },
+              "name": { "const": "governance-r0-tags" },
+              "include_refs": { "const": ["refs/tags/gov0-r0-proposal-v4", "refs/tags/governance/r0"] },
+              "rules": { "const": ["creation", "update", "deletion"] },
+              "pull_request_parameters": false
+            }
+          }
+        }
+      ]
+    },
+    "pull_request_parameters": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "allowed_merge_methods", "dismiss_stale_reviews_on_push", "require_code_owner_review",
+        "require_extra_approval_for_unattributed_changes", "require_last_push_approval",
+        "required_approving_review_count", "required_review_thread_resolution", "required_reviewers"
+      ],
+      "properties": {
+        "allowed_merge_methods": { "const": ["merge", "squash", "rebase"] },
+        "dismiss_stale_reviews_on_push": { "const": true },
+        "require_code_owner_review": { "const": true },
+        "require_extra_approval_for_unattributed_changes": { "const": true },
+        "require_last_push_approval": { "const": true },
+        "required_approving_review_count": { "const": 1 },
+        "required_review_thread_resolution": { "const": true },
+        "required_reviewers": { "const": [] }
+      }
+    }
+  }
+}

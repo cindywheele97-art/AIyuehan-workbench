@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:external-governance-actor-binding:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "binding_id",
+    "trust_policy_digest",
+    "principal_id",
+    "session_id",
+    "role",
+    "role_contract_digest",
+    "authority_basis",
+    "assurance",
+    "issued_at",
+    "expires_at",
+    "revoked_at",
+    "issuer_key_id",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "aiyuehan-workbench.external-governance-actor-binding/v1"
+    },
+    "binding_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trust_policy_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "principal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "enum": [
+        "stable_authority",
+        "definition_issuer",
+        "builder",
+        "reviewer",
+        "validator",
+        "conductor",
+        "approver"
+      ]
+    },
+    "role_contract_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "authority_basis": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "bootstrap_envelope_digest"
+          ],
+          "properties": {
+            "kind": {
+              "const": "bootstrap_development_envelope"
+            },
+            "bootstrap_envelope_digest": {
+              "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "authenticated_session_evidence_digest"
+          ],
+          "properties": {
+            "kind": {
+              "const": "authenticated_human_session"
+            },
+            "authenticated_session_evidence_digest": {
+              "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "system_principal_attestation_digest"
+          ],
+          "properties": {
+            "kind": {
+              "const": "system_principal"
+            },
+            "system_principal_attestation_digest": {
+              "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+            }
+          }
+        }
+      ]
+    },
+    "assurance": {
+      "enum": [
+        "authenticated_human",
+        "isolated_automation",
+        "hardware_backed"
+      ]
+    },
+    "issued_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "expires_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "revoked_at": {
+      "oneOf": [
+        {
+          "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "issuer_key_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signature": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/signature"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# External lineage record
+
+The active repository is a fresh AIyuehan-only root. Its predecessor is retained outside the workspace as a complete, three-ref Git bundle and is not eligible for publication under the active repository identity.
+
+## Digest-bound predecessor
+
+- Commit SHA-1: `e1b461f6db5b58e4c3b5b8eef37d4316f27ef2d1`
+- Tree SHA-1: `ef168835d2a897a4e03aee0dcae173421b55231f`
+- Annotated tag object SHA-1: `8e93f628e983e9ede440b472321db8c2978f7a01`
+- External recovery bundle SHA-256: `096478a6f0213804a8ba67c29c1c58334809f971edf524f2579a90939934aa76`
+- Bundle contents: exactly two proposal branches and one annotated proposal tag, with complete history.
+
+Raw predecessor records, original source names, and original user wording remain only in that local external archive. They are deliberately absent from the active payload and must never be pushed from this repository.
+
+This digest-only lineage is not a signature, formal approval, governing definition, publication authorization, or product-work authorization.

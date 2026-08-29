@@ -1,0 +1,62 @@
+{
+  "$schema": "../schemas/risk-policy.schema.json",
+  "schema_version": "aiyuehan-workbench.external-development-risk-policy/v1",
+  "policy_id": "aiyuehan-workbench-gov0-development-risk",
+  "revision": 1,
+  "status": "PROPOSED",
+  "effective": false,
+  "trust_policy_digest": "13d2598962cb48832e58ea3b4de89b8aa3179173f0d13a04ad00c5f9af9d8b81",
+  "scope": "GOV-0 development governance through M4",
+  "risk_classes": [
+    {
+      "id": "governance_static",
+      "external_effects": "none",
+      "minimum_assurance": "approved"
+    },
+    {
+      "id": "upstream_static",
+      "external_effects": "read_only",
+      "minimum_assurance": "approved"
+    },
+    {
+      "id": "product_build",
+      "external_effects": "none",
+      "minimum_assurance": "validated"
+    },
+    {
+      "id": "dynamic_qualification",
+      "external_effects": "managed_grant_required",
+      "minimum_assurance": "approved"
+    },
+    {
+      "id": "release",
+      "external_effects": "forbidden",
+      "minimum_assurance": "approved"
+    }
+  ],
+  "mandatory_invariants": [
+    "Governing Gate Definition is fixed and approved before its Candidate exists",
+    "Candidate Builder and Conductor cannot replace governing assets",
+    "Builder Reviewer Validator Conductor and Approver use independent principal and session identities when roles conflict",
+    "mechanical gate completes before Reviewer and Reviewer PASS precedes one-time Validator",
+    "all records bind the same fixed Candidate Gate Run Manifest and Governing Gate Definition digests",
+    "Candidate change invalidates prior Review Validation and Approval",
+    "M-1 is static only and cannot produce dynamic capability or adapter qualification claims",
+    "external effects require exact envelope authority and from M0-Q onward a separate product Execution Grant",
+    "unknown missing skipped errored or interrupted evidence cannot produce PASS",
+    "final clean tree and append-only historical records are mandatory"
+  ],
+  "failure_policy": {
+    "missing": "BLOCKED",
+    "skip": "BLOCKED",
+    "error": "BLOCKED",
+    "interrupted": "BLOCKED",
+    "unknown": "BLOCKED"
+  },
+  "activation_requirements": [
+    "active signed external trust policy",
+    "eligible issuer Actor Binding",
+    "exact digest-bound Approval Record",
+    "protected governing ref outside Candidate write authority"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "$schema": "../schemas/ref-protection-intent.schema.json",
+  "schema_version": "aiyuehan-workbench.ref-protection-intent/v1",
+  "repository": "cindywheele97-art/AIyuehan-workbench",
+  "repository_numeric_id": 1350747678,
+  "visibility": "public",
+  "status": "ACTIVE_ADMIN_READBACK_ONLY",
+  "observed_at": "2026-08-29T16:57:02Z",
+  "enforcement_required": "active",
+  "rulesets": [
+    {
+      "ruleset_id": 21811138,
+      "name": "governance-main-branch",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "cindywheele97-art/AIyuehan-workbench",
+      "enforcement": "active",
+      "include_refs": [
+        "refs/heads/main",
+        "refs/heads/governance/r0-proposal"
+      ],
+      "exclude_refs": [],
+      "rules": [
+        "creation",
+        "update",
+        "deletion",
+        "non_fast_forward",
+        "pull_request"
+      ],
+      "pull_request_parameters": {
+        "allowed_merge_methods": [
+          "merge",
+          "squash",
+          "rebase"
+        ],
+        "dismiss_stale_reviews_on_push": true,
+        "require_code_owner_review": true,
+        "require_extra_approval_for_unattributed_changes": true,
+        "require_last_push_approval": true,
+        "required_approving_review_count": 1,
+        "required_review_thread_resolution": true,
+        "required_reviewers": []
+      },
+      "bypass_policy": "stable_authority_only_never_candidate_roles",
+      "bypass_actors": [
+        {
+          "actor_id": 284274547,
+          "actor_type": "User",
+          "bypass_mode": "always"
+        }
+      ]
+    },
+    {
+      "ruleset_id": 21811141,
+      "name": "governance-r0-tags",
+      "target": "tag",
+      "source_type": "Repository",
+      "source": "cindywheele97-art/AIyuehan-workbench",
+      "enforcement": "active",
+      "include_refs": [
+        "refs/tags/gov0-r0-proposal-v4",
+        "refs/tags/governance/r0"
+      ],
+      "exclude_refs": [],
+      "rules": [
+        "creation",
+        "update",
+        "deletion"
+      ],
+      "bypass_policy": "stable_authority_only_never_candidate_roles",
+      "bypass_actors": [
+        {
+          "actor_id": 284274547,
+          "actor_type": "User",
+          "bypass_mode": "always"
+        }
+      ]
+    }
+  ],
+  "credential_boundary": [
+    "GitHub owner or ruleset-administration credentials belong only to a stable-authority publisher session and never to the Approver Definition Issuer or evidence attestor",
+    "Builder Reviewer Validator Conductor and Candidate environments must not inherit the owner token credential helper SSH deploy key or ruleset administration",
+    "remote evidence attestors use read-only credentials and remain independent from stable authority Definition Issuer and Approver principals and sessions",
+    "governing assets resolve from an exact protected ref and digest outside Candidate write authority",
+    "personal repository ownership is not a sufficient security boundary if a Candidate receives owner credentials"
+  ],
+  "required_readback": [
+    "repository numeric ID owner public visibility default branch and URL",
+    "publisher-signed admin capture proves repository ID 1350747678 exact ruleset IDs 21811138 and 21811141 repository source active enforcement exact include refs empty exclude refs exact rule sets exact branch pull-request parameters no tag pull-request parameters and the sole always-bypass stable publisher GitHub user",
+    "remote attestor GitHub user is different from the owner has pull-only access with no push or ruleset-administration capability and explicitly records bypass actors omitted by GitHub",
+    "attestor public ruleset fields exactly match the separately signed publisher-admin capture within five minutes",
+    "before approval main proposal branch and proposal tag resolve to the root proposal commit and refs/tags/governance/r0 is absent",
+    "after publication the annotated refs/tags/governance/r0 object message binds the activation digest and peels to the root proposal commit",
+    "force push deletion and direct Candidate update are denied by active rules"
+  ],
+  "required_future_probe": "Before an M-1 Candidate exists, use a real isolated non-bypass identity to attempt an update to the governing ref and retain the denial as raw evidence.",
+  "residual_blockers": [
+    "signed stable-publisher ruleset-admin evidence is absent",
+    "signed pull-only independent attestor precondition is absent",
+    "real non-bypass denied-write probe is absent",
+    "exact-digest approval and governing activation chain are absent"
+  ]
+}

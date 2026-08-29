@@ -1,0 +1,38 @@
+{
+  "$schema": "../schemas/identity-boundary-policy.schema.json",
+  "schema_version": "aiyuehan-workbench.identity-boundary-policy/v1",
+  "policy_id": "aiyuehan-workbench-gov0-identity-boundary",
+  "status": "PROPOSED",
+  "effective": false,
+  "canonical_identity": {
+    "display_name": "AIyuehan Workbench",
+    "repository_name": "AIyuehan-workbench",
+    "machine_namespace": "aiyuehan-workbench",
+    "schema_urn_prefix": "urn:aiyuehan-workbench:schema:"
+  },
+  "prohibited_namespace_fingerprint": {
+    "normalization": "UTF8_NFKC_ASCII_CASEFOLD",
+    "normalized_byte_length": 7,
+    "lowercase_sha256": "79d51394bd7e8dbfbd0aa15445c9c78970739ea24c295c2642b97050ced20f06",
+    "plaintext_storage_allowed": false
+  },
+  "repository_surfaces": [
+    "workspace_paths",
+    "workspace_file_bytes",
+    "git_ref_names",
+    "git_config_and_reflogs",
+    "all_git_object_payloads"
+  ],
+  "source_boundary": {
+    "external_bootstrap_payload_allowed": false,
+    "external_source_artifacts_allowed": false,
+    "clean_source_required": true,
+    "attribution_stripping_allowed": false,
+    "external_capability_terminology": "provider_neutral"
+  },
+  "lineage_boundary": {
+    "mode": "EXTERNAL_DIGEST_ONLY",
+    "raw_history_in_active_repository": false,
+    "external_digest_binding_required": true
+  }
+}

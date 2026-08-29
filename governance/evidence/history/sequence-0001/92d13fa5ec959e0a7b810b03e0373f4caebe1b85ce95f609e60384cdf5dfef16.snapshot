@@ -1,0 +1,52 @@
+{
+  "$schema": "../schemas/namespace-isolation-authorization.schema.json",
+  "schema_version": "aiyuehan-workbench.namespace-isolation-authorization/v1",
+  "authorization_id": "gov0-r0-aiyuehan-namespace-isolation-2026-08-29",
+  "recorded_at": "2026-08-29T15:50:31Z",
+  "authority_source": {
+    "kind": "authenticated_user_message",
+    "received_date": "2026-08-29",
+    "instruction_sha256": "90eab6c38f419eb74e4faea2304ab33ab723fb15bfeb758775dcb6262b1c7cc2",
+    "normalized_decision": "Use only the owner's AIyuehan identity throughout the active Workbench and exclude external product code and former naming."
+  },
+  "canonical_identity": {
+    "display_name": "AIyuehan Workbench",
+    "repository_owner": "cindywheele97-art",
+    "repository_name": "AIyuehan-workbench",
+    "repository_url": "https://github.com/cindywheele97-art/AIyuehan-workbench",
+    "machine_namespace": "aiyuehan-workbench",
+    "urn_prefix": "urn:aiyuehan-workbench",
+    "code_prefix": "AIyuehan",
+    "environment_prefix": "AIYUEHAN"
+  },
+  "lineage": {
+    "mode": "EXTERNAL_DIGEST_BOUND_ROOT_RESEAL",
+    "predecessor_commit_sha1": "e1b461f6db5b58e4c3b5b8eef37d4316f27ef2d1",
+    "predecessor_tree_sha1": "ef168835d2a897a4e03aee0dcae173421b55231f",
+    "predecessor_tag_object_sha1": "8e93f628e983e9ede440b472321db8c2978f7a01",
+    "predecessor_archive_sha256": "096478a6f0213804a8ba67c29c1c58334809f971edf524f2579a90939934aa76"
+  },
+  "allowed_effects": [
+    "rename and sanitize the GOV-0/R0 architecture and governance payload under the canonical AIyuehan identity",
+    "remove original source artifacts raw historical records and external product templates from the active repository",
+    "recompute governance-only schemas digests manifests verifiers refs and proposal anchors",
+    "create one fresh parentless local proposal root and an unsigned annotated proposal tag",
+    "create the private GitHub repository only after required branch and tag protections can be activated and read back"
+  ],
+  "forbidden_effects": [
+    "import external bootstrap product or template code into the active repository",
+    "represent external provider capabilities as AIyuehan-owned capabilities",
+    "remove legally required third-party attribution from any future dependency or source file",
+    "start or execute M-1",
+    "start or execute M0",
+    "write product implementation or a product skeleton",
+    "install dependencies or authenticate external platforms",
+    "create or mutate external or customer resources",
+    "run dynamic qualification",
+    "deploy publish release or enable execution automation",
+    "treat namespace isolation as exact-digest formal approval"
+  ],
+  "formal_approval": false,
+  "effective_governing_definition": false,
+  "remote_action_state": "BLOCKED_PROTECTION_ENTITLEMENT"
+}

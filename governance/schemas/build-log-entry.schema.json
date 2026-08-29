@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:build-log-entry:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "sequence",
+    "recorded_at",
+    "actor_role",
+    "event",
+    "subject",
+    "state",
+    "evidence",
+    "claims_excluded"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "aiyuehan-workbench.build-log-entry/v1"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "recorded_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "actor_role": {
+      "const": "conductor"
+    },
+    "event": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/repo_path"
+      }
+    },
+    "claims_excluded": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

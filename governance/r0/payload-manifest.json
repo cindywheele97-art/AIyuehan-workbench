@@ -1,0 +1,519 @@
+{
+  "$schema": "../schemas/payload-manifest.schema.json",
+  "schema_version": "aiyuehan-workbench.r0-payload-manifest/v1",
+  "manifest_id": "aiyuehan-workbench-gov0-r0-proposal-v4",
+  "scope": "GOV-0/R0",
+  "status": "PENDING_FORMAL_APPROVAL",
+  "effective": false,
+  "generated_at": "2026-08-29T17:39:09Z",
+  "repository": {
+    "owner": "cindywheele97-art",
+    "name": "AIyuehan-workbench",
+    "visibility": "public",
+    "expected_url": "https://github.com/cindywheele97-art/AIyuehan-workbench",
+    "remote_state": "PUBLIC_PROTECTED_GOVERNANCE_PROPOSAL",
+    "repository_numeric_id": 1350747678,
+    "default_branch": "main"
+  },
+  "source_design": {
+    "path": "AIyuehan-workbench-architecture-and-development-plan-v1.2.md",
+    "sha256": "be60ffbd9573b00b26e186295064a55dc255eaec05b7ca7ebc6cf70001b65274"
+  },
+  "digest_profile": {
+    "entry_bytes": "exact_git_blob_bytes",
+    "record_canonicalization": "RFC8785 / aiyuehan-workbench-restricted-ijson-v1",
+    "algorithm": "sha256"
+  },
+  "closed_world": true,
+  "entries_order": "path_bytewise_ascending",
+  "entries": [
+    {
+      "path": ".github/CODEOWNERS",
+      "bytes": 270,
+      "sha256": "4fcaffc6237b79aadb1b679b79e2ef87de93e83be3025345a02d833092318557",
+      "media_type": "text/plain",
+      "role": "repository_metadata"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 125,
+      "sha256": "121debc34e32a1b1ae08ae089fb64260663a8ffd0f60466a174ad6fbdbed7d91",
+      "media_type": "text/plain",
+      "role": "repository_metadata"
+    },
+    {
+      "path": "AIyuehan-workbench-architecture-and-development-plan-v1.2.md",
+      "bytes": 96001,
+      "sha256": "be60ffbd9573b00b26e186295064a55dc255eaec05b7ca7ebc6cf70001b65274",
+      "media_type": "text/markdown",
+      "role": "architecture_baseline"
+    },
+    {
+      "path": "CONTEXT.md",
+      "bytes": 13296,
+      "sha256": "fed5be9b1c7bae87d3eebcd8868131a9f2bb7c90f075c4b3d42b9e1f0c457199",
+      "media_type": "text/markdown",
+      "role": "domain_model"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1304,
+      "sha256": "9941a6f9a4c588e89cfa9396e76f03137efeae7727bb3ed9712ffdc5ed9acc56",
+      "media_type": "text/markdown",
+      "role": "repository_metadata"
+    },
+    {
+      "path": "docs/adr/0001-workbench-authority-external-platform-projection.md",
+      "bytes": 1223,
+      "sha256": "93c88d1da87ae68324128eefba086e11700c14eb13650f2eb16a72022b4e1c9e",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "docs/adr/0002-gate-authority-owns-stage-promotion.md",
+      "bytes": 966,
+      "sha256": "ccee42ce1885135953711f016cb5c3b626c426d1b4150a38b299d193ae01d5a4",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "docs/adr/0003-separate-projection-execution-and-effect-lifecycle.md",
+      "bytes": 1065,
+      "sha256": "9fff2fcb315dd4a7216f60695397eff66c5ea1c90124751a93bdc843914b9048",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "docs/adr/0004-execution-grant-precedes-real-execution.md",
+      "bytes": 1458,
+      "sha256": "19d00af854d14ce45dc8cd5751ace1e0a055c0e589b98dc0ffcbb42cd58727a1",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "docs/adr/0005-shared-kernel-isolated-customer-instances.md",
+      "bytes": 1428,
+      "sha256": "858238fb2260930a0cae714472cb06c5154feafd12f24798b02950a9874a5e82",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "docs/adr/0006-governing-gate-definition-precedes-candidate.md",
+      "bytes": 1275,
+      "sha256": "217d0ca11fa87b1ed60f02b5bf3b8fe7a0e3191cb6f2998300d97c8011d74d5a",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "docs/adr/0007-deployment-instance-contains-workspaces.md",
+      "bytes": 1122,
+      "sha256": "dcd7fc3150916f24dc20c965e210bd5ef5246b0ac052c567a2d1f3e130c2fdef",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "docs/adr/0008-two-phase-governing-tag-publication.md",
+      "bytes": 5539,
+      "sha256": "99b610b7ad2194a41f0e5899664d64706a3334692bd2f98d37b677f337060aa0",
+      "media_type": "text/markdown",
+      "role": "architecture_decision"
+    },
+    {
+      "path": "governance/README.md",
+      "bytes": 4087,
+      "sha256": "ca1f01fe4ba8c9425b41c18ff7af97dc163bd6269d6c28dde5ac7509ce5eecd0",
+      "media_type": "text/markdown",
+      "role": "governance_status"
+    },
+    {
+      "path": "governance/authorizations/R0-AIYUEHAN-NAMESPACE-AUTHORIZATION.json",
+      "bytes": 2805,
+      "sha256": "92d13fa5ec959e0a7b810b03e0373f4caebe1b85ce95f609e60384cdf5dfef16",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/authorizations/R0-PUBLIC-CONTINUATION-AUTHORIZATION.json",
+      "bytes": 1935,
+      "sha256": "bbb84330439fd4677e4dfc5bb09bab7b0ac657536ecbb7206f47e75067107169",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/build/BUILD-LOG-EVIDENCE-INDEX.json",
+      "bytes": 3042,
+      "sha256": "21f0c04be395b9af88d7ebdc8278ba6dc34cdc0c3ea59cbb3b1af025ee0678ac",
+      "media_type": "application/json",
+      "role": "governance_log"
+    },
+    {
+      "path": "governance/build/BUILD-LOG.ndjson",
+      "bytes": 3723,
+      "sha256": "0be07a69f03dc6deef6fe2fac9524bba1af393c81c38130ca19dfe71ee00a3cd",
+      "media_type": "application/x-ndjson",
+      "role": "governance_log"
+    },
+    {
+      "path": "governance/evidence/EXTERNAL-LINEAGE.md",
+      "bytes": 1060,
+      "sha256": "289b75eb42785b8296c5ecb30e78b8f9792565cfb68e7882d8c60537662549c4",
+      "media_type": "text/markdown",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/EXTERNAL-SOURCE-DIGESTS.sha256",
+      "bytes": 297,
+      "sha256": "8b2477b2b8f7904d450ab7b2f753b9ea857f6287bcc62cc049db4fe77c755146",
+      "media_type": "text/plain",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/GITHUB-PUBLIC-PROTECTION-ADMIN-READBACK-AIYUEHAN.md",
+      "bytes": 2093,
+      "sha256": "08447dfd15c09423d69e9febcbd7d92daa666af462e3857b6895c11d169971f8",
+      "media_type": "text/markdown",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/THIRD-PARTY-CODE-EXCLUSION.md",
+      "bytes": 1047,
+      "sha256": "088cf8d37397d5d29443511f779217148745e329d102adf6a05c20a2a2c0a524",
+      "media_type": "text/markdown",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/history/sequence-0001/088cf8d37397d5d29443511f779217148745e329d102adf6a05c20a2a2c0a524.snapshot",
+      "bytes": 1047,
+      "sha256": "088cf8d37397d5d29443511f779217148745e329d102adf6a05c20a2a2c0a524",
+      "media_type": "text/plain",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/history/sequence-0001/92d13fa5ec959e0a7b810b03e0373f4caebe1b85ce95f609e60384cdf5dfef16.snapshot",
+      "bytes": 2805,
+      "sha256": "92d13fa5ec959e0a7b810b03e0373f4caebe1b85ce95f609e60384cdf5dfef16",
+      "media_type": "text/plain",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/history/sequence-0001/93c71bcc10bb3752dbea766861a67707325ea2f9a63338a9fbc8384ba3cf7841.snapshot",
+      "bytes": 2286,
+      "sha256": "93c71bcc10bb3752dbea766861a67707325ea2f9a63338a9fbc8384ba3cf7841",
+      "media_type": "text/plain",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/history/sequence-0001/cb018f0db7097bed13fe2f61ad2607709b7413d8bfbdfaf2347dabfdfdae345f.snapshot",
+      "bytes": 1028,
+      "sha256": "cb018f0db7097bed13fe2f61ad2607709b7413d8bfbdfaf2347dabfdfdae345f",
+      "media_type": "text/plain",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/evidence/history/sequence-0001/ec3febc9639cebfb69dbc4fb3cd0a4645c750e5b6f870319251d007126ce5d0f.snapshot",
+      "bytes": 1307,
+      "sha256": "ec3febc9639cebfb69dbc4fb3cd0a4645c750e5b6f870319251d007126ce5d0f",
+      "media_type": "text/plain",
+      "role": "governance_evidence"
+    },
+    {
+      "path": "governance/r0/STATUS.md",
+      "bytes": 3604,
+      "sha256": "006a77e1793df3906319b1b7109b2420ecc149cf5aca7b0a8d53b6e000b66ae6",
+      "media_type": "text/markdown",
+      "role": "governance_status"
+    },
+    {
+      "path": "governance/r0/bootstrap-envelope-policy.proposal.json",
+      "bytes": 4111,
+      "sha256": "ad5bcac7986a84b60accb0cbdb70c4f0cf9f259461164a9dc8131e26bc6e61eb",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/r0/identity-boundary-policy.proposal.json",
+      "bytes": 1307,
+      "sha256": "ec3febc9639cebfb69dbc4fb3cd0a4645c750e5b6f870319251d007126ce5d0f",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/r0/m-1-gate-definition.proposal.json",
+      "bytes": 4909,
+      "sha256": "fce11bfb49c288e5212d3261c3cc1fdfbe21ec8f227e3d06a9f3368564692166",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/r0/r0-gate-definition.proposal.json",
+      "bytes": 10701,
+      "sha256": "c5ad55a22e3515d4e469f5dac6bed34163200f750b5f9916ab4f7d8f1159f930",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/r0/ref-protection-intent.json",
+      "bytes": 4564,
+      "sha256": "5ab9e4515f9a194ce16b118c621d73cff279e9b575634203f66f2c69b89edd83",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/r0/risk-policy.proposal.json",
+      "bytes": 2359,
+      "sha256": "83538f9883da949fcfafab2e96c0ebffdb09df8b7baf6aabbd61a46fc0b5ed7e",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/r0/trust-policy.proposal.json",
+      "bytes": 2299,
+      "sha256": "8ed0b5247a0f5ab87979a179646770e29db46fe1af16c4283f3968ccade5b97b",
+      "media_type": "application/json",
+      "role": "governance_policy"
+    },
+    {
+      "path": "governance/schemas/actor-binding.schema.json",
+      "bytes": 3393,
+      "sha256": "b823b638fc16880e1d1e9d21e13cc93a9cf10eba12e6e8f20f5c53be352a58ee",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/approval-record.schema.json",
+      "bytes": 1210,
+      "sha256": "f55b560f722cac63dc7c553a3a7a404c0cfb574dcf384275363f8d0ac5bb5578",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/approval-target.schema.json",
+      "bytes": 3634,
+      "sha256": "5becd985523c0fa6f3e7eda091a185d81f185b0c22a5c1d39fc7e2d2d0458399",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/bootstrap-envelope-policy.schema.json",
+      "bytes": 5875,
+      "sha256": "6c430807ccee3325036271ce98e0bd66671c0a81970a09aefcd856045bb845fe",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/bootstrap-envelope.schema.json",
+      "bytes": 3090,
+      "sha256": "e55a9f4a7aeb25eb1a266bb86d2d38b043a741dde72ed74ccec9f4adcebe2f5d",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/build-log-entry.schema.json",
+      "bytes": 1183,
+      "sha256": "1431a28580c298aa5b9a38f10ef2075bd6c4dcec26c738f2994f6824d460b689",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/build-log-evidence-index.schema.json",
+      "bytes": 3329,
+      "sha256": "17596a56f13a3fb5be22d8a74ce30133790caf1bee87837194e4180f0329499d",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/common.schema.json",
+      "bytes": 1980,
+      "sha256": "d0ea9e67c7e26025169e98cc6929c6acf0a0f76c36b1678c66bdbf5e3edcda6a",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/evidence.schema.json",
+      "bytes": 3271,
+      "sha256": "95cdd80007ba741f0794e392f678bed9b34b4a434a3d6e030d9ba83083159e4f",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/gate-run-manifest.schema.json",
+      "bytes": 2518,
+      "sha256": "664e3fffce6227507af59ea3adb36118d5ba569a7e0f4c74da90472417a6678a",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/governing-gate-activation.schema.json",
+      "bytes": 2180,
+      "sha256": "819037959fa0737b5405aa5602486dedf892eed4254f9b2c01c6f228ec8af912",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/governing-gate-content.schema.json",
+      "bytes": 3858,
+      "sha256": "30495cdd8de09e848f63aed20fdd69c475bc965a68cc7f8d645d308fea805df3",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/identity-boundary-policy.schema.json",
+      "bytes": 3006,
+      "sha256": "9dbb3d51f0cc222d728528961ac9910bc3d84ef4faecf8eff36c1fb004bb0f2a",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/namespace-isolation-authorization.schema.json",
+      "bytes": 3391,
+      "sha256": "275136267845b864cdc7787ad6e25a33ea9dd935afa3362132847f5069bfb89c",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/payload-manifest.schema.json",
+      "bytes": 5159,
+      "sha256": "8fbc2cced135c696b799826ec321415a7f2142c39b88b7e1f920359acce82346",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/preparation-authorization.schema.json",
+      "bytes": 2867,
+      "sha256": "6051de43357dbcd8bc91ba491f4814ca716687a6c8fc1e68478a47d2add5693b",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/proposed-gate-definition.schema.json",
+      "bytes": 5931,
+      "sha256": "d95fecc135cfcca7a178ecea9d4c48f903ce079a3da003616a3ef6e2c4ca561f",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/ref-protection-intent.schema.json",
+      "bytes": 6344,
+      "sha256": "097cfe3651549d384bd6bc4cb1b1db807e1731cc0d9d4de03f2fb3c057c92c1f",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/remote-protection-evidence.schema.json",
+      "bytes": 7525,
+      "sha256": "787868090f71978d68c227d7a4ca59bd8ba136771586652e17b5242d630aa772",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/remote-publication-evidence.schema.json",
+      "bytes": 7368,
+      "sha256": "23472aacbd63c37821551be5591b8b69949b9d719bd2f9a3ce5a9803db0ae1e0",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/remote-ruleset-admin-evidence.schema.json",
+      "bytes": 7292,
+      "sha256": "74bf11c508fafdede9e63f8fa661e249f2ff55cf66c59eb4ce0535d71974f29b",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/repository-continuation-authorization.schema.json",
+      "bytes": 2460,
+      "sha256": "f8597d6bea9176a876796cfe8ccb452bfea79ba9c4d8c568c58caebe7d28b189",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/review-verdict.schema.json",
+      "bytes": 3109,
+      "sha256": "e7134811fa7f5266c920ebc8e2d50df4656ae9f8820a4e9eb17c44ede1be26d6",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/risk-policy.schema.json",
+      "bytes": 5025,
+      "sha256": "44c28346fd0bc42be7ee05659de3ad8c95b0ecef84bf51451775e928b2c51ecf",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/trust-policy.schema.json",
+      "bytes": 8379,
+      "sha256": "e3029f6aa56c2ff98be5a74630501c1f291c7b4ed40478c9aef19834a629b418",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/schemas/validation-verdict.schema.json",
+      "bytes": 3310,
+      "sha256": "fb78c81428899166de43ef1b57b1246ae52169839afc729122355c34b98dd612",
+      "media_type": "application/json",
+      "role": "governance_schema"
+    },
+    {
+      "path": "governance/tools/canonical-json.mjs",
+      "bytes": 7235,
+      "sha256": "d8d0f815edc6ba73f8818e869fc401e43639e4c7090ddeffca57d09afcf16513",
+      "media_type": "text/javascript",
+      "role": "governance_tool"
+    },
+    {
+      "path": "governance/tools/validate-json-schema.mjs",
+      "bytes": 19026,
+      "sha256": "0ba42c16119960f6fedfd9bdfd0e6e0f8e42a7757d144b89e626cf22f33aebb1",
+      "media_type": "text/javascript",
+      "role": "governance_tool"
+    },
+    {
+      "path": "governance/tools/verify-activation.mjs",
+      "bytes": 69043,
+      "sha256": "30db17b35e5a93494eb6cf37d664896f3eb7673dc2bc2b1b167c1c252a877cd4",
+      "media_type": "text/javascript",
+      "role": "governance_tool"
+    },
+    {
+      "path": "governance/tools/verify-identity-boundary.mjs",
+      "bytes": 4535,
+      "sha256": "6a3ecbc33b6d5949af4d65f8d35f179c8df4ab6d0926b3099f9fc532ce0c1f2c",
+      "media_type": "text/javascript",
+      "role": "governance_tool"
+    },
+    {
+      "path": "governance/tools/verify-m1-static.sh",
+      "bytes": 678,
+      "sha256": "c468c08dbf72731213b7d3b51fd8b63bedfcc5eb895cbe365d9e4162ee607330",
+      "media_type": "text/x-shellscript",
+      "role": "governance_tool"
+    },
+    {
+      "path": "governance/tools/verify-r0.sh",
+      "bytes": 58738,
+      "sha256": "1a9027db21920753a52137e1be1bd07ee059f92092969541022101614fbc2ee4",
+      "media_type": "text/x-shellscript",
+      "role": "governance_tool"
+    }
+  ],
+  "excluded_detached_records": [
+    "governance/r0/payload-manifest.json",
+    "active external trust policy",
+    "active external risk policy",
+    "active bootstrap envelope policy",
+    "signed external actor bindings",
+    "signed publisher precondition ruleset-admin evidence and raw API capture",
+    "signed remote protection precondition and read-only raw API capture",
+    "external approval target",
+    "external approval record",
+    "frozen governing gate content",
+    "signed governing gate activation authorization",
+    "git annotated proposal tag object",
+    "git governing tag object",
+    "signed publisher post-publication ruleset-admin evidence and raw API capture",
+    "signed remote publication evidence and read-only raw API capture",
+    "initial governing activation verifier result"
+  ],
+  "self_excluded": true
+}

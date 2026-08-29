@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:namespace-isolation-authorization:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "authorization_id",
+    "recorded_at",
+    "authority_source",
+    "canonical_identity",
+    "lineage",
+    "allowed_effects",
+    "forbidden_effects",
+    "formal_approval",
+    "effective_governing_definition",
+    "remote_action_state"
+  ],
+  "properties": {
+    "$schema": { "const": "../schemas/namespace-isolation-authorization.schema.json" },
+    "schema_version": { "const": "aiyuehan-workbench.namespace-isolation-authorization/v1" },
+    "authorization_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339" },
+    "authority_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "received_date", "instruction_sha256", "normalized_decision"],
+      "properties": {
+        "kind": { "const": "authenticated_user_message" },
+        "received_date": { "type": "string", "format": "date" },
+        "instruction_sha256": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+        "normalized_decision": { "type": "string", "minLength": 1 }
+      }
+    },
+    "canonical_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "repository_owner", "repository_name", "repository_url", "machine_namespace", "urn_prefix", "code_prefix", "environment_prefix"],
+      "properties": {
+        "display_name": { "const": "AIyuehan Workbench" },
+        "repository_owner": { "const": "cindywheele97-art" },
+        "repository_name": { "const": "AIyuehan-workbench" },
+        "repository_url": { "const": "https://github.com/cindywheele97-art/AIyuehan-workbench" },
+        "machine_namespace": { "const": "aiyuehan-workbench" },
+        "urn_prefix": { "const": "urn:aiyuehan-workbench" },
+        "code_prefix": { "const": "AIyuehan" },
+        "environment_prefix": { "const": "AIYUEHAN" }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "predecessor_commit_sha1", "predecessor_tree_sha1", "predecessor_tag_object_sha1", "predecessor_archive_sha256"],
+      "properties": {
+        "mode": { "const": "EXTERNAL_DIGEST_BOUND_ROOT_RESEAL" },
+        "predecessor_commit_sha1": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+        "predecessor_tree_sha1": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+        "predecessor_tag_object_sha1": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1" },
+        "predecessor_archive_sha256": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" }
+      }
+    },
+    "allowed_effects": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "forbidden_effects": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "formal_approval": { "const": false },
+    "effective_governing_definition": { "const": false },
+    "remote_action_state": { "const": "BLOCKED_PROTECTION_ENTITLEMENT" }
+  }
+}

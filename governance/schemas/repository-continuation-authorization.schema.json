@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:repository-continuation-authorization:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "authorization_id",
+    "recorded_at",
+    "authority_source",
+    "repository",
+    "development_intent_recorded",
+    "next_milestone",
+    "allowed_effects",
+    "forbidden_effects",
+    "formal_approval",
+    "effective_governing_definition",
+    "remote_action_state"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schema_version": { "const": "aiyuehan-workbench.repository-continuation-authorization/v1" },
+    "authorization_id": { "const": "gov0-r0-public-continuation-2026-08-29" },
+    "recorded_at": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339" },
+    "authority_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "received_date", "instruction_sha256", "normalized_decision"],
+      "properties": {
+        "kind": { "const": "authenticated_user_message" },
+        "received_date": { "type": "string", "format": "date" },
+        "instruction_sha256": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+        "normalized_decision": { "type": "string", "minLength": 1 }
+      }
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "name", "url", "database_id", "visibility"],
+      "properties": {
+        "owner": { "const": "cindywheele97-art" },
+        "name": { "const": "AIyuehan-workbench" },
+        "url": { "const": "https://github.com/cindywheele97-art/AIyuehan-workbench" },
+        "database_id": { "const": 1350747678 },
+        "visibility": { "const": "public" }
+      }
+    },
+    "development_intent_recorded": { "const": true },
+    "next_milestone": { "const": "R0_ACTIVATION_PREPARATION" },
+    "allowed_effects": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "forbidden_effects": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "formal_approval": { "const": false },
+    "effective_governing_definition": { "const": false },
+    "remote_action_state": { "const": "PUBLIC_RULESETS_ACTIVE_PROPOSAL_REFS_UNPUBLISHED" }
+  }
+}

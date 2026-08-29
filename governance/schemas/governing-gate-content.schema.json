@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:governing-gate-content:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "definition_id",
+    "revision",
+    "status",
+    "effective",
+    "milestone",
+    "execution_class",
+    "provider_credentials",
+    "risk_policy_digest",
+    "trust_policy_digest",
+    "bootstrap_envelope_policy_digest",
+    "gate_assets",
+    "runner",
+    "commands",
+    "evidence_requirements",
+    "skip_policy",
+    "clean_tree_required",
+    "dynamic_external_effects_allowed",
+    "allowed_effects",
+    "forbidden_effects",
+    "required_outputs",
+    "forbidden_claims",
+    "activation_requirements"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "aiyuehan-workbench.governing-gate-content/v1"
+    },
+    "definition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "const": "FROZEN_PENDING_ACTIVATION"
+    },
+    "effective": {
+      "const": false
+    },
+    "milestone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_class": {
+      "enum": [
+        "governance_static_validation",
+        "static_assessment",
+        "controlled_build",
+        "dynamic_qualification"
+      ]
+    },
+    "provider_credentials": {
+      "enum": [
+        "none",
+        "synthetic",
+        "managed_attempt_scoped"
+      ]
+    },
+    "risk_policy_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "trust_policy_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "bootstrap_envelope_policy_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "gate_assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/repo_path"
+          },
+          "sha256": {
+            "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+          }
+        }
+      }
+    },
+    "runner": {
+      "$ref": "urn:aiyuehan-workbench:schema:proposed-gate-definition:v1#/$defs/runner"
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "urn:aiyuehan-workbench:schema:proposed-gate-definition:v1#/$defs/command"
+      }
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "skip_policy": {
+      "const": "fail"
+    },
+    "clean_tree_required": {
+      "const": true
+    },
+    "dynamic_external_effects_allowed": {
+      "type": "boolean"
+    },
+    "allowed_effects": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "forbidden_effects": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "forbidden_claims": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "activation_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:build-log-evidence-index:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "index_id",
+    "recorded_at",
+    "log_path",
+    "resolution_policy",
+    "historical_snapshots",
+    "current_entries"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "aiyuehan-workbench.build-log-evidence-index/v1"
+    },
+    "index_id": {
+      "const": "gov0-r0-build-log-evidence-index-v1"
+    },
+    "recorded_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "log_path": {
+      "const": "governance/build/BUILD-LOG.ndjson"
+    },
+    "resolution_policy": {
+      "const": "historical evidence paths resolve through immutable content-addressed snapshots; current entries resolve against the current closed-world proposal root"
+    },
+    "historical_snapshots": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "$ref": "#/$defs/historical_snapshot"
+      }
+    },
+    "current_entries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "first_sequence",
+        "resolution"
+      ],
+      "properties": {
+        "first_sequence": {
+          "const": 2
+        },
+        "resolution": {
+          "const": "CURRENT_ROOT_CLOSED_WORLD_MANIFEST"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "historical_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sequence",
+        "source_proposal_commit_sha1",
+        "source_proposal_tree_sha1",
+        "source_proposal_tag_object_sha1",
+        "source_recovery_bundle_sha256",
+        "evidence"
+      ],
+      "properties": {
+        "sequence": {
+          "const": 1
+        },
+        "source_proposal_commit_sha1": {
+          "const": "3d0da0b3239688a2da89aeac993e12a341a894ec"
+        },
+        "source_proposal_tree_sha1": {
+          "const": "8f1ba6ede31e4bdce07ab8cdb5f1db9b74bd8012"
+        },
+        "source_proposal_tag_object_sha1": {
+          "const": "311acdd83e2f6c810bf412a178f802240c8c4600"
+        },
+        "source_recovery_bundle_sha256": {
+          "const": "0bcf06b2f839d4337963ffd9366f62dabd0fabdf36ee209e8a9d878f0e2e1625"
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/evidence_snapshot"
+          }
+        }
+      }
+    },
+    "evidence_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original_path",
+        "snapshot_path",
+        "raw_sha256",
+        "git_blob_sha1"
+      ],
+      "properties": {
+        "original_path": {
+          "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/repo_path"
+        },
+        "snapshot_path": {
+          "pattern": "^governance/evidence/history/sequence-0001/[0-9a-f]{64}\\.snapshot$"
+        },
+        "raw_sha256": {
+          "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+        },
+        "git_blob_sha1": {
+          "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1"
+        }
+      }
+    }
+  }
+}

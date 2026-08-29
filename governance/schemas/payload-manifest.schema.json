@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:r0-payload-manifest:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "manifest_id",
+    "scope",
+    "status",
+    "effective",
+    "generated_at",
+    "repository",
+    "source_design",
+    "digest_profile",
+    "closed_world",
+    "entries_order",
+    "entries",
+    "excluded_detached_records",
+    "self_excluded"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "aiyuehan-workbench.r0-payload-manifest/v1"
+    },
+    "manifest_id": {
+      "const": "aiyuehan-workbench-gov0-r0-proposal-v4"
+    },
+    "scope": {
+      "const": "GOV-0/R0"
+    },
+    "status": {
+      "const": "PENDING_FORMAL_APPROVAL"
+    },
+    "effective": {
+      "const": false
+    },
+    "generated_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner",
+        "name",
+        "visibility",
+        "expected_url",
+        "remote_state",
+        "repository_numeric_id",
+        "default_branch"
+      ],
+      "properties": {
+        "owner": {
+          "const": "cindywheele97-art"
+        },
+        "name": {
+          "const": "AIyuehan-workbench"
+        },
+        "visibility": {
+          "const": "public"
+        },
+        "expected_url": {
+          "const": "https://github.com/cindywheele97-art/AIyuehan-workbench"
+        },
+        "remote_state": {
+          "const": "PUBLIC_PROTECTED_GOVERNANCE_PROPOSAL"
+        },
+        "repository_numeric_id": {
+          "const": 1350747678
+        },
+        "default_branch": {
+          "const": "main"
+        }
+      }
+    },
+    "source_design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "const": "AIyuehan-workbench-architecture-and-development-plan-v1.2.md"
+        },
+        "sha256": {
+        "const": "be60ffbd9573b00b26e186295064a55dc255eaec05b7ca7ebc6cf70001b65274"
+        }
+      }
+    },
+    "digest_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entry_bytes",
+        "record_canonicalization",
+        "algorithm"
+      ],
+      "properties": {
+        "entry_bytes": {
+          "const": "exact_git_blob_bytes"
+        },
+        "record_canonicalization": {
+          "const": "RFC8785 / aiyuehan-workbench-restricted-ijson-v1"
+        },
+        "algorithm": {
+          "const": "sha256"
+        }
+      }
+    },
+    "closed_world": {
+      "const": true
+    },
+    "entries_order": {
+      "const": "path_bytewise_ascending"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "bytes",
+          "sha256",
+          "media_type",
+          "role"
+        ],
+        "properties": {
+          "path": {
+            "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/repo_path"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sha256": {
+            "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+          },
+          "media_type": {
+            "enum": [
+              "application/json",
+              "application/x-ndjson",
+              "text/markdown",
+              "text/plain",
+              "text/x-shellscript",
+              "text/javascript"
+            ]
+          },
+          "role": {
+            "enum": [
+              "architecture_baseline",
+              "domain_model",
+              "architecture_decision",
+              "governance_policy",
+              "governance_schema",
+              "governance_tool",
+              "governance_evidence",
+              "governance_status",
+              "governance_log",
+              "repository_metadata"
+            ]
+          }
+        }
+      }
+    },
+    "excluded_detached_records": {
+      "const": [
+        "governance/r0/payload-manifest.json",
+        "active external trust policy",
+        "active external risk policy",
+        "active bootstrap envelope policy",
+        "signed external actor bindings",
+        "signed publisher precondition ruleset-admin evidence and raw API capture",
+        "signed remote protection precondition and read-only raw API capture",
+        "external approval target",
+        "external approval record",
+        "frozen governing gate content",
+        "signed governing gate activation authorization",
+        "git annotated proposal tag object",
+        "git governing tag object",
+        "signed publisher post-publication ruleset-admin evidence and raw API capture",
+        "signed remote publication evidence and read-only raw API capture",
+        "initial governing activation verifier result"
+      ]
+    },
+    "self_excluded": {
+      "const": true
+    }
+  }
+}

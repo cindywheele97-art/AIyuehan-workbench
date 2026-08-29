@@ -1,0 +1,99 @@
+{
+  "$schema": "../schemas/trust-policy.schema.json",
+  "schema_version": "aiyuehan-workbench.external-governance-trust-policy/v1",
+  "policy_id": "aiyuehan-workbench-gov0-external-trust",
+  "revision": 1,
+  "status": "PROPOSED",
+  "effective": false,
+  "proposed_at": "2026-08-29T12:55:27Z",
+  "canonicalization": {
+    "name": "RFC8785",
+    "profile": "aiyuehan-workbench-restricted-ijson-v1",
+    "digest_algorithm": "sha256"
+  },
+  "eligible_roles": [
+    "stable_authority",
+    "definition_issuer",
+    "builder",
+    "reviewer",
+    "validator",
+    "conductor",
+    "approver"
+  ],
+  "trusted_keys": [],
+  "allowed_signature_algorithms": [
+    "Ed25519"
+  ],
+  "separation_of_duty": {
+    "identity_basis": [
+      "principal_id",
+      "session_id"
+    ],
+    "independence_rule": "both_principal_id_and_session_id_must_differ",
+    "unique_public_key_material_required": true,
+    "forbidden_role_pairs_for_one_candidate": [
+      [
+        "stable_authority",
+        "approver"
+      ],
+      [
+        "stable_authority",
+        "definition_issuer"
+      ],
+      [
+        "stable_authority",
+        "validator"
+      ],
+      [
+        "definition_issuer",
+        "approver"
+      ],
+      [
+        "definition_issuer",
+        "validator"
+      ],
+      [
+        "approver",
+        "validator"
+      ],
+      [
+        "builder",
+        "reviewer"
+      ],
+      [
+        "builder",
+        "validator"
+      ],
+      [
+        "reviewer",
+        "validator"
+      ],
+      [
+        "conductor",
+        "reviewer"
+      ],
+      [
+        "conductor",
+        "validator"
+      ],
+      [
+        "conductor",
+        "approver"
+      ]
+    ]
+  },
+  "rotation_policy": {
+    "historical_verification_uses_bound_snapshot": true,
+    "new_key_requires_new_policy_revision": true
+  },
+  "revocation_policy": {
+    "effective_time_required": true,
+    "historical_decisions_fail_if_signature_time_is_on_or_after_revocation": true
+  },
+  "activation_requirements": [
+    "real non-reused keys for stable authority Definition Issuer Approver and remote attestor",
+    "out-of-band root public-key SPKI SHA-256 anchor",
+    "key ownership validity and current non-revocation evidence",
+    "digest-bound external approval and two-phase protected-tag publication evidence"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "../schemas/build-log-evidence-index.schema.json",
+  "schema_version": "aiyuehan-workbench.build-log-evidence-index/v1",
+  "index_id": "gov0-r0-build-log-evidence-index-v1",
+  "recorded_at": "2026-08-29T17:26:15Z",
+  "log_path": "governance/build/BUILD-LOG.ndjson",
+  "resolution_policy": "historical evidence paths resolve through immutable content-addressed snapshots; current entries resolve against the current closed-world proposal root",
+  "historical_snapshots": [
+    {
+      "sequence": 1,
+      "source_proposal_commit_sha1": "3d0da0b3239688a2da89aeac993e12a341a894ec",
+      "source_proposal_tree_sha1": "8f1ba6ede31e4bdce07ab8cdb5f1db9b74bd8012",
+      "source_proposal_tag_object_sha1": "311acdd83e2f6c810bf412a178f802240c8c4600",
+      "source_recovery_bundle_sha256": "0bcf06b2f839d4337963ffd9366f62dabd0fabdf36ee209e8a9d878f0e2e1625",
+      "evidence": [
+        {
+          "original_path": "governance/authorizations/R0-AIYUEHAN-NAMESPACE-AUTHORIZATION.json",
+          "snapshot_path": "governance/evidence/history/sequence-0001/92d13fa5ec959e0a7b810b03e0373f4caebe1b85ce95f609e60384cdf5dfef16.snapshot",
+          "raw_sha256": "92d13fa5ec959e0a7b810b03e0373f4caebe1b85ce95f609e60384cdf5dfef16",
+          "git_blob_sha1": "1fdc3f8f224f993e193a10b2e130e0c9783aaea2"
+        },
+        {
+          "original_path": "governance/evidence/EXTERNAL-LINEAGE.md",
+          "snapshot_path": "governance/evidence/history/sequence-0001/cb018f0db7097bed13fe2f61ad2607709b7413d8bfbdfaf2347dabfdfdae345f.snapshot",
+          "raw_sha256": "cb018f0db7097bed13fe2f61ad2607709b7413d8bfbdfaf2347dabfdfdae345f",
+          "git_blob_sha1": "6e1beb2f9312426098fa0ffb9bdd1b085543f8b9"
+        },
+        {
+          "original_path": "governance/evidence/THIRD-PARTY-CODE-EXCLUSION.md",
+          "snapshot_path": "governance/evidence/history/sequence-0001/088cf8d37397d5d29443511f779217148745e329d102adf6a05c20a2a2c0a524.snapshot",
+          "raw_sha256": "088cf8d37397d5d29443511f779217148745e329d102adf6a05c20a2a2c0a524",
+          "git_blob_sha1": "869f6a08770249708e9414d480a3750e49da1b6f"
+        },
+        {
+          "original_path": "governance/r0/identity-boundary-policy.proposal.json",
+          "snapshot_path": "governance/evidence/history/sequence-0001/ec3febc9639cebfb69dbc4fb3cd0a4645c750e5b6f870319251d007126ce5d0f.snapshot",
+          "raw_sha256": "ec3febc9639cebfb69dbc4fb3cd0a4645c750e5b6f870319251d007126ce5d0f",
+          "git_blob_sha1": "f711ef39c7a98dbbde5680d356d0bd6a5b5bfc3c"
+        },
+        {
+          "original_path": "governance/r0/STATUS.md",
+          "snapshot_path": "governance/evidence/history/sequence-0001/93c71bcc10bb3752dbea766861a67707325ea2f9a63338a9fbc8384ba3cf7841.snapshot",
+          "raw_sha256": "93c71bcc10bb3752dbea766861a67707325ea2f9a63338a9fbc8384ba3cf7841",
+          "git_blob_sha1": "179b2c3741ae11309ede7ca5e9e20a07f48a91ab"
+        }
+      ]
+    }
+  ],
+  "current_entries": {
+    "first_sequence": 2,
+    "resolution": "CURRENT_ROOT_CLOSED_WORLD_MANIFEST"
+  }
+}

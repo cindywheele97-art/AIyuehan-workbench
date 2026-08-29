@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:evidence:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "gate_run_manifest_digest",
+    "governing_definition_digest",
+    "candidate_sha",
+    "producer_actor_binding_digest",
+    "kind",
+    "command_id",
+    "started_at",
+    "finished_at",
+    "exit_code",
+    "outcome",
+    "raw_capture_digest",
+    "redaction_attestation_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "aiyuehan-workbench.external-gate-evidence/v1"
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gate_run_manifest_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "governing_definition_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "candidate_sha": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1"
+    },
+    "producer_actor_binding_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "kind": {
+      "enum": [
+        "mechanical_command",
+        "read_only_preflight",
+        "remote_rule_readback",
+        "denied_write_probe"
+      ]
+    },
+    "command_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "started_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "finished_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "exit_code": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "INTERRUPTED"
+      ]
+    },
+    "raw_capture_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "redaction_attestation_digest": {
+      "oneOf": [
+        {
+          "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "PASS"
+          }
+        },
+        "required": [
+          "outcome"
+        ]
+      },
+      "then": {
+        "properties": {
+          "exit_code": {
+            "const": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "FAIL"
+          }
+        },
+        "required": [
+          "outcome"
+        ]
+      },
+      "then": {
+        "properties": {
+          "exit_code": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 255
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "enum": [
+              "BLOCKED",
+              "INTERRUPTED"
+            ]
+          }
+        },
+        "required": [
+          "outcome"
+        ]
+      },
+      "then": {
+        "properties": {
+          "exit_code": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

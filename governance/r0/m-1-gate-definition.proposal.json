@@ -1,0 +1,120 @@
+{
+  "$schema": "../schemas/proposed-gate-definition.schema.json",
+  "schema_version": "aiyuehan-workbench.proposed-gate-definition/v1",
+  "definition_id": "aiyuehan-workbench-m-minus-1-static-assessment",
+  "revision": 2,
+  "status": "PROPOSED",
+  "effective": false,
+  "milestone": "M-1",
+  "execution_class": "static_assessment",
+  "provider_credentials": "none",
+  "risk_policy_digest": "ca2daef8f457964683940e9e3e954c0b2076ac08ccde367761919a07898150e4",
+  "trust_policy_digest": "13d2598962cb48832e58ea3b4de89b8aa3179173f0d13a04ad00c5f9af9d8b81",
+  "bootstrap_envelope_policy_digest": "edf793a140295f8b3bed2d440f200813b6ed049ce54cb7e9040d90276ac662a6",
+  "gate_assets": [
+    {
+      "path": "governance/schemas/evidence.schema.json",
+      "sha256": "95cdd80007ba741f0794e392f678bed9b34b4a434a3d6e030d9ba83083159e4f"
+    },
+    {
+      "path": "governance/schemas/gate-run-manifest.schema.json",
+      "sha256": "664e3fffce6227507af59ea3adb36118d5ba569a7e0f4c74da90472417a6678a"
+    },
+    {
+      "path": "governance/schemas/review-verdict.schema.json",
+      "sha256": "e7134811fa7f5266c920ebc8e2d50df4656ae9f8820a4e9eb17c44ede1be26d6"
+    },
+    {
+      "path": "governance/schemas/validation-verdict.schema.json",
+      "sha256": "fb78c81428899166de43ef1b57b1246ae52169839afc729122355c34b98dd612"
+    },
+    {
+      "path": "governance/tools/verify-m1-static.sh",
+      "sha256": "c468c08dbf72731213b7d3b51fd8b63bedfcc5eb895cbe365d9e4162ee607330"
+    }
+  ],
+  "runner": {
+    "kind": "local_external_governance_runner",
+    "toolchain": [
+      {
+        "name": "bash",
+        "path": "/bin/bash",
+        "version": "3.2.57(1)-release"
+      },
+      {
+        "name": "git",
+        "path": "/usr/bin/git",
+        "version": "2.39.5 (Apple Git-154)"
+      },
+      {
+        "name": "jq",
+        "path": "/usr/bin/jq",
+        "version": "1.7.1-apple"
+      }
+    ],
+    "network": "read_only_allowlist",
+    "governance_preconditions": [
+      "composite activation verification returns GOVERNING_GATE_ACTIVE for the complete schema signature Git tag and pre/post remote evidence chain",
+      "active Governing Gate Definition resolves from the exact protected governance/r0 annotated tag message and approved proposal digest",
+      "sealed Gate Run Manifest and runner Actor Binding exist outside Candidate write authority",
+      "M-1 Bootstrap Development Envelope binds the exact role session commands paths network and expiry"
+    ]
+  },
+  "commands": [
+    {
+      "id": "verify-m-minus-1-static-outputs",
+      "argv": [
+        "/bin/bash",
+        "governance/tools/verify-m1-static.sh"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "required": true
+    }
+  ],
+  "evidence_requirements": [
+    "pinned upstream release identifiers and digests",
+    "read-only source URL retrieval time and content digest",
+    "license text source and explicit disposition",
+    "unknown and requires-dynamic-proof capability classifications retained",
+    "pre and post tree status and raw gate output",
+    "fresh independent Reviewer verdict and one-time Validator verdict"
+  ],
+  "skip_policy": "fail",
+  "clean_tree_required": true,
+  "dynamic_external_effects_allowed": false,
+  "allowed_effects": [
+    "read official public documentation source release notes and license materials",
+    "write the four declared M-1 static outputs and raw read-only evidence",
+    "compute local digests and run deterministic static validation"
+  ],
+  "forbidden_effects": [
+    "External Runtime Provider Task Agent Squad Issue or Workspace creation or mutation",
+    "installation authentication or provider credential use",
+    "Runtime or Agent dispatch Projection mutation or dynamic provider probe",
+    "product code M0 skeleton database or deployment assets",
+    "customer production credential or resource access",
+    "push deploy publish or release",
+    "using static documentation as dynamic capability proof"
+  ],
+  "required_outputs": [
+    "StaticCapabilityAssessment",
+    "DynamicQualificationPlan",
+    "PinnedReleaseInventory",
+    "LicenseDisposition"
+  ],
+  "forbidden_claims": [
+    "CapabilitySnapshot",
+    "AdapterQualification",
+    "RuntimeQualification"
+  ],
+  "activation_requirements": [
+    "a later governance Candidate replaces the intentional blocker with strict M-1 output schemas and a qualified static validator under an already governing definition",
+    "R0 exact-digest formal Approval Record validates",
+    "a complete two-phase Governing Gate publication chain exists before the M-1 Candidate",
+    "active protected governing ref message binds the activation digest and resolves to the approved root commit",
+    "Builder Reviewer Validator Conductor and Approver role bindings and credentials are isolated",
+    "real non-bypass identity denied-write probe has been retained",
+    "an exact M-1 Bootstrap Development Envelope is issued"
+  ]
+}

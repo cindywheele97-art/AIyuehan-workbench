@@ -1,0 +1,250 @@
+{
+  "$schema": "../schemas/proposed-gate-definition.schema.json",
+  "schema_version": "aiyuehan-workbench.proposed-gate-definition/v1",
+  "definition_id": "aiyuehan-workbench-gov0-r0",
+  "revision": 5,
+  "status": "PROPOSED",
+  "effective": false,
+  "milestone": "GOV-0/R0",
+  "execution_class": "governance_static_validation",
+  "provider_credentials": "none",
+  "risk_policy_digest": "ca2daef8f457964683940e9e3e954c0b2076ac08ccde367761919a07898150e4",
+  "trust_policy_digest": "13d2598962cb48832e58ea3b4de89b8aa3179173f0d13a04ad00c5f9af9d8b81",
+  "bootstrap_envelope_policy_digest": "edf793a140295f8b3bed2d440f200813b6ed049ce54cb7e9040d90276ac662a6",
+  "gate_assets": [
+    {
+      "path": "governance/schemas/actor-binding.schema.json",
+      "sha256": "b823b638fc16880e1d1e9d21e13cc93a9cf10eba12e6e8f20f5c53be352a58ee"
+    },
+    {
+      "path": "governance/schemas/approval-record.schema.json",
+      "sha256": "f55b560f722cac63dc7c553a3a7a404c0cfb574dcf384275363f8d0ac5bb5578"
+    },
+    {
+      "path": "governance/schemas/approval-target.schema.json",
+      "sha256": "5becd985523c0fa6f3e7eda091a185d81f185b0c22a5c1d39fc7e2d2d0458399"
+    },
+    {
+      "path": "governance/schemas/bootstrap-envelope-policy.schema.json",
+      "sha256": "6c430807ccee3325036271ce98e0bd66671c0a81970a09aefcd856045bb845fe"
+    },
+    {
+      "path": "governance/schemas/bootstrap-envelope.schema.json",
+      "sha256": "e55a9f4a7aeb25eb1a266bb86d2d38b043a741dde72ed74ccec9f4adcebe2f5d"
+    },
+    {
+      "path": "governance/schemas/build-log-entry.schema.json",
+      "sha256": "1431a28580c298aa5b9a38f10ef2075bd6c4dcec26c738f2994f6824d460b689"
+    },
+    {
+      "path": "governance/schemas/build-log-evidence-index.schema.json",
+      "sha256": "17596a56f13a3fb5be22d8a74ce30133790caf1bee87837194e4180f0329499d"
+    },
+    {
+      "path": "governance/schemas/common.schema.json",
+      "sha256": "d0ea9e67c7e26025169e98cc6929c6acf0a0f76c36b1678c66bdbf5e3edcda6a"
+    },
+    {
+      "path": "governance/schemas/evidence.schema.json",
+      "sha256": "95cdd80007ba741f0794e392f678bed9b34b4a434a3d6e030d9ba83083159e4f"
+    },
+    {
+      "path": "governance/schemas/gate-run-manifest.schema.json",
+      "sha256": "664e3fffce6227507af59ea3adb36118d5ba569a7e0f4c74da90472417a6678a"
+    },
+    {
+      "path": "governance/schemas/governing-gate-activation.schema.json",
+      "sha256": "819037959fa0737b5405aa5602486dedf892eed4254f9b2c01c6f228ec8af912"
+    },
+    {
+      "path": "governance/schemas/governing-gate-content.schema.json",
+      "sha256": "30495cdd8de09e848f63aed20fdd69c475bc965a68cc7f8d645d308fea805df3"
+    },
+    {
+      "path": "governance/schemas/identity-boundary-policy.schema.json",
+      "sha256": "9dbb3d51f0cc222d728528961ac9910bc3d84ef4faecf8eff36c1fb004bb0f2a"
+    },
+    {
+      "path": "governance/schemas/namespace-isolation-authorization.schema.json",
+      "sha256": "275136267845b864cdc7787ad6e25a33ea9dd935afa3362132847f5069bfb89c"
+    },
+    {
+      "path": "governance/schemas/payload-manifest.schema.json",
+      "sha256": "8fbc2cced135c696b799826ec321415a7f2142c39b88b7e1f920359acce82346"
+    },
+    {
+      "path": "governance/schemas/preparation-authorization.schema.json",
+      "sha256": "6051de43357dbcd8bc91ba491f4814ca716687a6c8fc1e68478a47d2add5693b"
+    },
+    {
+      "path": "governance/schemas/proposed-gate-definition.schema.json",
+      "sha256": "d95fecc135cfcca7a178ecea9d4c48f903ce079a3da003616a3ef6e2c4ca561f"
+    },
+    {
+      "path": "governance/schemas/ref-protection-intent.schema.json",
+      "sha256": "097cfe3651549d384bd6bc4cb1b1db807e1731cc0d9d4de03f2fb3c057c92c1f"
+    },
+    {
+      "path": "governance/schemas/remote-protection-evidence.schema.json",
+      "sha256": "787868090f71978d68c227d7a4ca59bd8ba136771586652e17b5242d630aa772"
+    },
+    {
+      "path": "governance/schemas/remote-publication-evidence.schema.json",
+      "sha256": "23472aacbd63c37821551be5591b8b69949b9d719bd2f9a3ce5a9803db0ae1e0"
+    },
+    {
+      "path": "governance/schemas/remote-ruleset-admin-evidence.schema.json",
+      "sha256": "74bf11c508fafdede9e63f8fa661e249f2ff55cf66c59eb4ce0535d71974f29b"
+    },
+    {
+      "path": "governance/schemas/repository-continuation-authorization.schema.json",
+      "sha256": "f8597d6bea9176a876796cfe8ccb452bfea79ba9c4d8c568c58caebe7d28b189"
+    },
+    {
+      "path": "governance/schemas/review-verdict.schema.json",
+      "sha256": "e7134811fa7f5266c920ebc8e2d50df4656ae9f8820a4e9eb17c44ede1be26d6"
+    },
+    {
+      "path": "governance/schemas/risk-policy.schema.json",
+      "sha256": "44c28346fd0bc42be7ee05659de3ad8c95b0ecef84bf51451775e928b2c51ecf"
+    },
+    {
+      "path": "governance/schemas/trust-policy.schema.json",
+      "sha256": "e3029f6aa56c2ff98be5a74630501c1f291c7b4ed40478c9aef19834a629b418"
+    },
+    {
+      "path": "governance/schemas/validation-verdict.schema.json",
+      "sha256": "fb78c81428899166de43ef1b57b1246ae52169839afc729122355c34b98dd612"
+    },
+    {
+      "path": "governance/tools/canonical-json.mjs",
+      "sha256": "d8d0f815edc6ba73f8818e869fc401e43639e4c7090ddeffca57d09afcf16513"
+    },
+    {
+      "path": "governance/tools/validate-json-schema.mjs",
+      "sha256": "0ba42c16119960f6fedfd9bdfd0e6e0f8e42a7757d144b89e626cf22f33aebb1"
+    },
+    {
+      "path": "governance/tools/verify-activation.mjs",
+      "sha256": "30db17b35e5a93494eb6cf37d664896f3eb7673dc2bc2b1b167c1c252a877cd4"
+    },
+    {
+      "path": "governance/tools/verify-identity-boundary.mjs",
+      "sha256": "6a3ecbc33b6d5949af4d65f8d35f179c8df4ab6d0926b3099f9fc532ce0c1f2c"
+    },
+    {
+      "path": "governance/tools/verify-r0.sh",
+      "sha256": "1a9027db21920753a52137e1be1bd07ee059f92092969541022101614fbc2ee4"
+    }
+  ],
+  "runner": {
+    "kind": "local_external_governance_runner",
+    "toolchain": [
+      {
+        "name": "bash",
+        "path": "/bin/bash",
+        "version": "3.2.57(1)-release"
+      },
+      {
+        "name": "git",
+        "path": "/usr/bin/git",
+        "version": "2.39.5 (Apple Git-154)"
+      },
+      {
+        "name": "jq",
+        "path": "/usr/bin/jq",
+        "version": "1.7.1-apple"
+      },
+      {
+        "name": "node",
+        "path": "/opt/homebrew/bin/node",
+        "version": "26.7.0"
+      },
+      {
+        "name": "shasum",
+        "path": "/usr/bin/shasum",
+        "version": "6.02"
+      }
+    ],
+    "network": "denied",
+    "governance_preconditions": [
+      "namespace and public-continuation authorization canonical digests match their user instructions",
+      "proposal payload manifest is closed-world and pending formal approval",
+      "no active trust policy Approval Record or Governing Gate Definition is claimed"
+    ]
+  },
+  "commands": [
+    {
+      "id": "verify-r0-sealed",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin",
+        "LC_ALL=C",
+        "GIT_CONFIG_GLOBAL=/dev/null",
+        "GIT_CONFIG_SYSTEM=/dev/null",
+        "/bin/bash",
+        "--noprofile",
+        "--norc",
+        "governance/tools/verify-r0.sh",
+        "sealed"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "required": true
+    }
+  ],
+  "evidence_requirements": [
+    "raw command output and exit status",
+    "closed-world payload path and digest verification",
+    "content-addressed BUILD-LOG historical evidence resolution without rewriting prior events",
+    "single root commit and clean tree verification after sealing",
+    "independent Spec and Standards review of the fixed root commit",
+    "unsigned administrator readback retained without upgrading it to signed publisher or pull-only attestor evidence"
+  ],
+  "skip_policy": "fail",
+  "clean_tree_required": true,
+  "dynamic_external_effects_allowed": false,
+  "allowed_effects": [
+    "read governance and architecture files",
+    "parse JSON and canonicalize governance records",
+    "compute local file and Git object digests",
+    "write raw local governance evidence outside the governed payload"
+  ],
+  "forbidden_effects": [
+    "M-1 or M0 execution",
+    "product code or product skeleton creation",
+    "installation authentication or provider credential use",
+    "External Work Platform or customer resource mutation",
+    "deploy publish release or execution automation",
+    "remote creation or push without active branch and tag protection capability"
+  ],
+  "required_outputs": [
+    "R0ProposalMechanicalEvidence",
+    "R0PayloadManifestDigest",
+    "R0IndependentReviewVerdict",
+    "R0RemoteProtectionDisposition"
+  ],
+  "forbidden_claims": [
+    "FormalApproval",
+    "ActiveTrustPolicy",
+    "GoverningGateDefinition",
+    "ProtectedRemote",
+    "M-1Started",
+    "M0Started"
+  ],
+  "activation_requirements": [
+    "the closed-keyword Draft 2020-12 schema profile validates every instantiated record and rejects unsupported schema keywords",
+    "an active trust policy is signed by a real root key whose SPKI SHA-256 is supplied to the verifier out of band",
+    "stable-authority publisher Definition Issuer Approver and read-only remote attestor use different principals sessions and public key material",
+    "publisher-signed precondition admin evidence binds repository ID 1350747678 exact ruleset IDs and names root commit tree source include empty-exclude rule sets complete branch pull-request parameters tag parameter absence sole stable publisher bypass raw capture and absence of refs/tags/governance/r0",
+    "pull-only attestor signed precondition binds the publisher-admin digest and independently confirms the same fixed repository identity refs ruleset IDs names and all public rule parameters without claiming hidden bypass visibility",
+    "exact Approval Target and signed Approval Record bind the complete proposal policy content asset nonce expiry and precondition digests",
+    "Definition Issuer signs an ineffective AUTHORIZED_PENDING_PUBLICATION activation authorization",
+    "annotated refs/tags/governance/r0 exact tagger identity and message bind the stable publisher repository nonce proposal manifest Approval and activation digests",
+    "publisher-signed post-publication admin evidence binds unchanged complete rulesets exact governing tag and admin raw capture",
+    "pull-only attestor signed post-publication readback binds the publisher-admin digest exact governing tag object peeled commit tree message public rules and independent raw capture",
+    "an isolated external runner materializes every schema canonicalizer validator and activation verifier from the exact approved Git commit before execution",
+    "the composite verifier derives GOVERNING_GATE_ACTIVE only from the complete chain outside Candidate write authority"
+  ]
+}

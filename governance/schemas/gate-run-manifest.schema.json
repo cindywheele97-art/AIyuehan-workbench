@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:gate-run-manifest:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "repository_id",
+    "base_sha",
+    "candidate_sha",
+    "candidate_tree_sha",
+    "governing_definition_digest",
+    "gate_assets_digest",
+    "conductor_actor_binding_digest",
+    "runner_actor_binding_digest",
+    "toolchain_digest",
+    "commands_digest",
+    "environment_digest",
+    "evidence_location",
+    "pre_tree_digest",
+    "post_tree_policy",
+    "sealed_at",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "aiyuehan-workbench.gate-run-manifest/v1"
+    },
+    "manifest_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repository_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "base_sha": {
+      "oneOf": [
+        {
+          "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "candidate_sha": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1"
+    },
+    "candidate_tree_sha": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/git_sha1"
+    },
+    "governing_definition_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "gate_assets_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "conductor_actor_binding_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "runner_actor_binding_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "toolchain_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "commands_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "environment_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "evidence_location": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pre_tree_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "post_tree_policy": {
+      "const": "must_equal_pre_tree_and_end_clean"
+    },
+    "sealed_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "signature": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/signature"
+    }
+  }
+}

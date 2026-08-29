@@ -1,0 +1,37 @@
+{
+  "$schema": "../schemas/repository-continuation-authorization.schema.json",
+  "schema_version": "aiyuehan-workbench.repository-continuation-authorization/v1",
+  "authorization_id": "gov0-r0-public-continuation-2026-08-29",
+  "recorded_at": "2026-08-29T16:59:05Z",
+  "authority_source": {
+    "kind": "authenticated_user_message",
+    "received_date": "2026-08-29",
+    "instruction_sha256": "59195be38d6cc98931d58bc8950ac8177b615175bbd91c16d84c709209fb4db3",
+    "normalized_decision": "Continue project development after converting the AIyuehan repository to public visibility, while preserving the governing milestone prerequisites."
+  },
+  "repository": {
+    "owner": "cindywheele97-art",
+    "name": "AIyuehan-workbench",
+    "url": "https://github.com/cindywheele97-art/AIyuehan-workbench",
+    "database_id": 1350747678,
+    "visibility": "public"
+  },
+  "development_intent_recorded": true,
+  "next_milestone": "R0_ACTIVATION_PREPARATION",
+  "allowed_effects": [
+    "configure and read back active public repository branch and tag rulesets",
+    "prepare and publish a governance-only R0 proposal through the declared protected refs",
+    "continue into each development milestone only after its governing prerequisites become effective"
+  ],
+  "forbidden_effects": [
+    "treat this instruction as an exact-digest Approval Record or cryptographic signature",
+    "represent an owner-admin readback as independent pull-only attestation",
+    "publish a governing tag before the signed activation chain validates",
+    "start M-1 before R0 derives GOVERNING_GATE_ACTIVE",
+    "start M0 or product implementation before an independently accepted M-1",
+    "install authenticate deploy release or mutate provider or customer resources without a later exact authorization"
+  ],
+  "formal_approval": false,
+  "effective_governing_definition": false,
+  "remote_action_state": "PUBLIC_RULESETS_ACTIVE_PROPOSAL_REFS_UNPUBLISHED"
+}

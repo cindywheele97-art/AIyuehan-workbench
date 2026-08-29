@@ -1,0 +1,104 @@
+{
+  "$schema": "../schemas/bootstrap-envelope-policy.schema.json",
+  "schema_version": "aiyuehan-workbench.bootstrap-envelope-policy/v1",
+  "policy_id": "aiyuehan-workbench-gov0-bootstrap-envelope",
+  "revision": 1,
+  "status": "PROPOSED",
+  "effective": false,
+  "trust_policy_digest": "13d2598962cb48832e58ea3b4de89b8aa3179173f0d13a04ad00c5f9af9d8b81",
+  "allowed_milestones": [
+    "M-1",
+    "M0",
+    "M0-Q",
+    "M1",
+    "M1-Q",
+    "M2",
+    "M3",
+    "M4"
+  ],
+  "eligible_roles": [
+    "builder",
+    "reviewer",
+    "validator",
+    "conductor",
+    "approver"
+  ],
+  "command_policy": {
+    "mode": "exact_allowlist",
+    "requirements": [
+      "each envelope binds exact argv cwd timeout subject digest role and session",
+      "required commands cannot be skipped substituted or delegated to a different role",
+      "commands execute only after a sealed Gate Run Manifest exists",
+      "shell expansion and undeclared subprocesses are forbidden"
+    ]
+  },
+  "filesystem_policy": {
+    "mode": "exact_allowlist",
+    "requirements": [
+      "read and write paths are repository-relative and manifest declared",
+      "governing assets and sealed evidence are read-only to Candidate Builder and Conductor",
+      "customer and production filesystems are forbidden",
+      "pre and post tree digests and final clean status are retained"
+    ]
+  },
+  "network_policy": {
+    "mode": "deny_by_default",
+    "requirements": [
+      "each allowed host method and purpose is explicit in the envelope",
+      "M-1 permits only read-only public documentation source release and license retrieval",
+      "provider mutation runtime dispatch deployment and release endpoints are forbidden",
+      "all undeclared egress is denied"
+    ]
+  },
+  "credential_policy": {
+    "mode": "deny_by_default",
+    "requirements": [
+      "provider customer and production credentials are forbidden",
+      "synthetic credentials are attempt scoped and redacted",
+      "GitHub owner or ruleset-administration authority belongs only to the stable-authority publisher and is never inherited by Builder Reviewer Validator Conductor Approver Definition Issuer Candidate or generic automation",
+      "authority and effect credentials remain separate"
+    ]
+  },
+  "isolation_policy": {
+    "mode": "exact_allowlist",
+    "requirements": [
+      "one envelope binds one principal session role subject and attempt",
+      "host mounts sockets secrets and undeclared environment variables are denied",
+      "fresh Reviewer and one-time Validator sessions are mandatory",
+      "conflicting roles require both principal_id and session_id to differ"
+    ]
+  },
+  "audit_policy": {
+    "mode": "exact_allowlist",
+    "requirements": [
+      "raw stdout stderr exit status timestamps and tool versions are retained",
+      "Evidence and verdict records bind Gate Run Manifest Candidate and Governing Definition digests",
+      "historical attempts are append-only and never overwritten",
+      "secrets are redacted with a separate attestation"
+    ]
+  },
+  "lifetime_policy": {
+    "max_ttl_seconds": 3600,
+    "expiry_required": true
+  },
+  "replay_policy": {
+    "nonce_required": true,
+    "single_use": true
+  },
+  "forbidden_effects": [
+    "External Runtime Provider Task Agent Squad Issue Workspace or Projection mutation without separately required product Grant",
+    "customer or production resource access",
+    "provider installation or authentication outside an expressly approved later qualification",
+    "push deploy publish release or Actions enablement unless separately and exactly authorized",
+    "using an Envelope as Capability Snapshot Adapter Qualification Runtime Qualification or product Execution Evidence",
+    "permanent bootstrap bypass",
+    "Candidate modification of governing refs tags definitions approvals evidence or verdicts"
+  ],
+  "activation_requirements": [
+    "active signed external trust policy",
+    "eligible issuer Actor Binding",
+    "exact digest-bound Approval Record",
+    "active protected governance ref and tag",
+    "credential isolation evidence for each role"
+  ]
+}

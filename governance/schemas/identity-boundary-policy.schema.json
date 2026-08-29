@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:identity-boundary-policy:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "policy_id",
+    "status",
+    "effective",
+    "canonical_identity",
+    "prohibited_namespace_fingerprint",
+    "repository_surfaces",
+    "source_boundary",
+    "lineage_boundary"
+  ],
+  "properties": {
+    "$schema": { "const": "../schemas/identity-boundary-policy.schema.json" },
+    "schema_version": { "const": "aiyuehan-workbench.identity-boundary-policy/v1" },
+    "policy_id": { "const": "aiyuehan-workbench-gov0-identity-boundary" },
+    "status": { "const": "PROPOSED" },
+    "effective": { "const": false },
+    "canonical_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "repository_name", "machine_namespace", "schema_urn_prefix"],
+      "properties": {
+        "display_name": { "const": "AIyuehan Workbench" },
+        "repository_name": { "const": "AIyuehan-workbench" },
+        "machine_namespace": { "const": "aiyuehan-workbench" },
+        "schema_urn_prefix": { "const": "urn:aiyuehan-workbench:schema:" }
+      }
+    },
+    "prohibited_namespace_fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["normalization", "normalized_byte_length", "lowercase_sha256", "plaintext_storage_allowed"],
+      "properties": {
+        "normalization": { "const": "UTF8_NFKC_ASCII_CASEFOLD" },
+        "normalized_byte_length": { "const": 7 },
+        "lowercase_sha256": { "const": "79d51394bd7e8dbfbd0aa15445c9c78970739ea24c295c2642b97050ced20f06" },
+        "plaintext_storage_allowed": { "const": false }
+      }
+    },
+    "repository_surfaces": {
+      "type": "array",
+      "const": ["workspace_paths", "workspace_file_bytes", "git_ref_names", "git_config_and_reflogs", "all_git_object_payloads"]
+    },
+    "source_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["external_bootstrap_payload_allowed", "external_source_artifacts_allowed", "clean_source_required", "attribution_stripping_allowed", "external_capability_terminology"],
+      "properties": {
+        "external_bootstrap_payload_allowed": { "const": false },
+        "external_source_artifacts_allowed": { "const": false },
+        "clean_source_required": { "const": true },
+        "attribution_stripping_allowed": { "const": false },
+        "external_capability_terminology": { "const": "provider_neutral" }
+      }
+    },
+    "lineage_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "raw_history_in_active_repository", "external_digest_binding_required"],
+      "properties": {
+        "mode": { "const": "EXTERNAL_DIGEST_ONLY" },
+        "raw_history_in_active_repository": { "const": false },
+        "external_digest_binding_required": { "const": true }
+      }
+    }
+  }
+}

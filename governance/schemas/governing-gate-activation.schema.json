@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:governing-gate-activation:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "activation_id", "status", "effective", "governing_gate_content_digest",
+    "approved_proposal_digest", "payload_manifest_digest", "approval_target_digest",
+    "approval_record_digest", "remote_precondition_evidence_digest", "ceremony_nonce",
+    "issuer_actor_binding_digest", "intended_protected_ref", "authorized_at",
+    "publication_deadline", "activation_sequence", "supersedes_activation_digest", "signature"
+  ],
+  "properties": {
+    "schema_version": { "const": "aiyuehan-workbench.governing-gate-activation/v1" },
+    "activation_id": { "type": "string", "minLength": 1 },
+    "status": { "const": "AUTHORIZED_PENDING_PUBLICATION" },
+    "effective": { "const": false },
+    "governing_gate_content_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "approved_proposal_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "payload_manifest_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "approval_target_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "approval_record_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "remote_precondition_evidence_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "ceremony_nonce": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/ceremony_nonce" },
+    "issuer_actor_binding_digest": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256" },
+    "intended_protected_ref": { "const": "refs/tags/governance/r0" },
+    "authorized_at": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339" },
+    "publication_deadline": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339" },
+    "activation_sequence": { "const": 0 },
+    "supersedes_activation_digest": { "const": null },
+    "signature": { "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/signature" }
+  }
+}

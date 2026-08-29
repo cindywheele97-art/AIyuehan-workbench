@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:external-governance-trust-policy:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "policy_id",
+    "revision",
+    "status",
+    "effective",
+    "proposed_at",
+    "canonicalization",
+    "eligible_roles",
+    "trusted_keys",
+    "allowed_signature_algorithms",
+    "separation_of_duty",
+    "rotation_policy",
+    "revocation_policy",
+    "activation_requirements"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "aiyuehan-workbench.external-governance-trust-policy/v1"
+    },
+    "policy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "PROPOSED",
+        "ACTIVE",
+        "REVOKED"
+      ]
+    },
+    "effective": {
+      "type": "boolean"
+    },
+    "proposed_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "canonicalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "profile",
+        "digest_algorithm"
+      ],
+      "properties": {
+        "name": {
+          "const": "RFC8785"
+        },
+        "profile": {
+          "const": "aiyuehan-workbench-restricted-ijson-v1"
+        },
+        "digest_algorithm": {
+          "const": "sha256"
+        }
+      }
+    },
+    "eligible_roles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "stable_authority",
+          "definition_issuer",
+          "builder",
+          "reviewer",
+          "validator",
+          "conductor",
+          "approver"
+        ]
+      }
+    },
+    "trusted_keys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key_id",
+          "principal_id",
+          "algorithm",
+          "public_key_spki_der_base64",
+          "allowed_roles",
+          "usages",
+          "valid_from",
+          "valid_until",
+          "revoked_at"
+        ],
+        "properties": {
+          "key_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "principal_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "algorithm": {
+            "const": "Ed25519"
+          },
+          "public_key_spki_der_base64": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allowed_roles": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "stable_authority",
+                "definition_issuer",
+                "builder",
+                "reviewer",
+                "validator",
+                "conductor",
+                "approver"
+              ]
+            }
+          },
+          "usages": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "root_trust_activation",
+                "actor_binding",
+                "policy",
+                "gate_definition",
+                "approval",
+                "verdict",
+                "evidence"
+              ]
+            }
+          },
+          "valid_from": {
+            "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+          },
+          "valid_until": {
+            "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+          },
+          "revoked_at": {
+            "oneOf": [
+              {
+                "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "allowed_signature_algorithms": {
+      "const": [
+        "Ed25519"
+      ]
+    },
+    "separation_of_duty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity_basis",
+        "independence_rule",
+        "unique_public_key_material_required",
+        "forbidden_role_pairs_for_one_candidate"
+      ],
+      "properties": {
+        "identity_basis": {
+          "const": [
+            "principal_id",
+            "session_id"
+          ]
+        },
+        "independence_rule": {
+          "const": "both_principal_id_and_session_id_must_differ"
+        },
+        "unique_public_key_material_required": {
+          "const": true
+        },
+        "forbidden_role_pairs_for_one_candidate": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      }
+    },
+    "rotation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "historical_verification_uses_bound_snapshot",
+        "new_key_requires_new_policy_revision"
+      ],
+      "properties": {
+        "historical_verification_uses_bound_snapshot": {
+          "const": true
+        },
+        "new_key_requires_new_policy_revision": {
+          "const": true
+        }
+      }
+    },
+    "revocation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "effective_time_required",
+        "historical_decisions_fail_if_signature_time_is_on_or_after_revocation"
+      ],
+      "properties": {
+        "effective_time_required": {
+          "const": true
+        },
+        "historical_decisions_fail_if_signature_time_is_on_or_after_revocation": {
+          "const": true
+        }
+      }
+    },
+    "activation_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "activated_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "root_authority_principal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signature": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/signature"
+    },
+    "revoked_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "PROPOSED"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "effective": {
+            "const": false
+          },
+          "trusted_keys": {}
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "activated_at"
+              ]
+            },
+            {
+              "required": [
+                "root_authority_principal_id"
+              ]
+            },
+            {
+              "required": [
+                "signature"
+              ]
+            }
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "activated_at",
+          "root_authority_principal_id",
+          "signature"
+        ],
+        "properties": {
+          "trusted_keys": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ACTIVE"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "effective": {
+            "const": true
+          }
+        },
+        "not": {
+          "required": [
+            "revoked_at"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "REVOKED"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "revoked_at"
+        ],
+        "properties": {
+          "effective": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}

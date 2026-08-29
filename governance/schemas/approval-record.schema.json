@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aiyuehan-workbench:schema:external-governance-approval-record:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "approval_id",
+    "approval_target_digest",
+    "choice",
+    "approver_actor_binding_digest",
+    "ceremony_nonce",
+    "issued_at",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "aiyuehan-workbench.external-governance-approval-record/v1"
+    },
+    "approval_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approval_target_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "choice": {
+      "enum": [
+        "approve",
+        "reject"
+      ]
+    },
+    "approver_actor_binding_digest": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/sha256"
+    },
+    "ceremony_nonce": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/ceremony_nonce"
+    },
+    "issued_at": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/rfc3339"
+    },
+    "signature": {
+      "$ref": "urn:aiyuehan-workbench:schema:common:v1#/$defs/signature"
+    }
+  }
+}

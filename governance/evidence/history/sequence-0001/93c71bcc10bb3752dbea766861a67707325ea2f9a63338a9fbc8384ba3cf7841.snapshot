@@ -1,0 +1,43 @@
+# GOV-0/R0 status
+
+```text
+R0 = PROPOSAL / PENDING_FORMAL_APPROVAL
+IDENTITY = AIyuehan Workbench
+MACHINE_NAMESPACE = aiyuehan-workbench
+IDENTITY_BOUNDARY = AIYUEHAN_ONLY / ZERO_RESIDUE_REQUIRED
+INTENDED_PRIVATE_REPOSITORY = cindywheele97-art/AIyuehan-workbench
+PREDECESSOR = EXTERNAL_DIGEST_BOUND / NOT_PUBLISHABLE_FROM_ACTIVE_REPOSITORY
+FORMAL_APPROVAL = PENDING_EXACT_DIGEST
+EFFECTIVE = false
+ROOT_TRUST_KEY = ABSENT / REQUIRED
+ACTIVATION_SCHEMA_ENGINE = PRESENT / CLOSED KEYWORD PROFILE / SELF-TESTED
+OUT_OF_BAND_ROOT_SPKI_ANCHOR = ABSENT / REQUIRED
+ACTIVATION_BUNDLE = ABSENT / REQUIRED
+REMOTE_PROTECTION_PRECONDITION = ABSENT / REQUIRED
+EXACT_DIGEST_APPROVAL_RECORD = ABSENT / REQUIRED
+GOVERNING_GATE_CONTENT = ABSENT
+GOVERNING_GATE_ACTIVATION_AUTHORIZATION = ABSENT
+REMOTE_PUBLICATION_EVIDENCE = ABSENT / REQUIRED
+GOVERNING_REF_OR_TAG = ABSENT
+PRIVATE_REMOTE = NOT_CREATED
+REMOTE_PROTECTION = BLOCKED_BY_CURRENT_GITHUB_PLAN
+M-1 = NOT_STARTED / NOT_AUTHORIZED
+M0 = NOT_STARTED / NOT_AUTHORIZED
+PRODUCT_IMPLEMENTATION = NOT_STARTED / NOT_AUTHORIZED
+INSTALLATION = NOT_STARTED / NOT_AUTHORIZED
+DEPLOYMENT = NOT_STARTED / NOT_AUTHORIZED
+```
+
+The local proposal tag is only an unsigned annotated anchor. It is neither a cryptographic signature nor a governing tag.
+
+## Identity and source boundary
+
+The active repository must contain no prohibited namespace token in any path, file bytes, ref, config, reflog, commit, tree, blob, or tag object. Original inputs, raw historical authority records, and predecessor Git objects remain outside the workspace in a digest-bound local archive. External bootstrap product and template files are excluded.
+
+## Fail-closed blocker
+
+Read-only GitHub capability evidence shows that the current account cannot activate the required protections for a private repository. No private remote is created or pushed because an unprotected repository would not satisfy the authorized operation.
+
+## Next authorization boundary
+
+After a protection-capable private owner or plan is available, branch and tag creation/update/deletion rules must be activated and independently read back. A later exact-digest Approval Record and required signatures remain separate prerequisites. M-1 stays prohibited until the complete chain and role isolation evidence exist.
